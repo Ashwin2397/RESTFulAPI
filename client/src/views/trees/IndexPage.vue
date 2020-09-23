@@ -7,16 +7,21 @@
       </div>
     </div>
     <a id="create" class="btn btn-success" href="./trees/new">Create new tree</a>
-    <div v-for="item in trees" v-bind:key="item._id">
-      <div class="card" style="width: 18rem;" >
-        <img class="card-img-top" v-bind:src="item.image" >
-        <div class="card-body">
-          <h4 class="card-title">{{ item.genus }}</h4>
-          <p class="card-text">{{ item.description }}</p>
-          <a v-bind:href="'./trees/'+item._id" class="btn btn-primary">Read More...</a>
-        </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4"  v-for="item in trees" v-bind:key="item._id">
+            <div class="card" style="width: 18rem;" >
+              <img class="card-img-top" v-bind:src="item.image" >
+              <div class="card-body">
+                <h4 class="card-title">{{ item.genus }}</h4>
+                <p class="card-text">{{ item.description }}</p>
+                <a v-bind:href="'./trees/'+item._id" class="btn btn-primary">Read More...</a>
+              </div>
+            </div>
+        </div>    
       </div>
     </div>
+    
    
   </div>
 </template>
@@ -65,12 +70,7 @@ export default {
 a{
   text-align: right;
 }
-.jumbotron-fluid{
-  margin-top:0px;
-}
-.jumbotron{
-  margin-top:0px;
-}
+
 .col{
   margin-top: 20px;
   background:pink;
