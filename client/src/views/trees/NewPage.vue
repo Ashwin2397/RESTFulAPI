@@ -31,11 +31,12 @@
             <input v-model="latitude" placeholder="latitude">
         </div>
     </div>
-
+    <input type="submit" class="" v-on:click="postTree" href="http://localhost:8080/trees" label="Create Character">
   </div>
 </template>
 
 <script>
+import axios from "axios"
 export default {
   name: 'new-page',
   data(){
@@ -46,6 +47,24 @@ export default {
           height: 0,
           longitude:'',
           latitude:''
+      }
+  },
+  methods: {
+      postTree: function(){
+
+        axios
+            .post("http://localhost:3000/trees",{
+                    genus: this.genus,
+                    image: this.image,
+                    weight: this.weight,
+                    height: this.height,
+                    longitude: this.longitude,
+                    latitude: this.latitude
+            })
+            .then(function(res){
+                console.log(res);
+            });
+        this.$router.push("/trees");
       }
   }
 }

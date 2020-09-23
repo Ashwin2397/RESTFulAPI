@@ -6,29 +6,42 @@
         <p class="lead">A brief lists of all trees in Victoria</p>
       </div>
     </div>
-    <a id="create" class="btn btn-success" href="./new">Create new tree</a>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          1 of 2
-        </div>
-        <div class="col">
-          2 of 2
-        </div>
-        <div class="col">
-          3 of 3
-        </div>
-      </div>
-    </div>
-
+    <a id="create" class="btn btn-success" href="./trees/new">Create new tree</a>
+    <ul>
+      <li v-for="item in trees" v-bind:key="item._id">
+        {{ item.genus }} - {{ item.image }}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
+import axios from "axios"
+
 export default {
   name: 'index-page',
-  props: {
-    msg: String
+  data(){
+    return{
+      trees:null
+    }
+  },
+  methods: {
+    //The scope of this function changed when i used an arrow function
+    //read more on arrow functions
+    getTrees: function(){
+      axios
+          .get("http://localhost:3000/trees")
+          .then((res)=>{
+            this.trees=res.data;
+            console.log(res.data);
+          })
+          .catch((err) =>{console.log(err);});
+    }
+  },
+
+  //Starting to understand that to mount a function is to run that function when page is loaded
+  mounted: function(){
+    this.getTrees();
   }
 }
 </script>
