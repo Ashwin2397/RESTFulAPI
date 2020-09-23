@@ -1,16 +1,14 @@
 <template>
   <div id="app">
-    <TreeViewer />
+    <router-view/>
   </div>
 </template>
 
 <script>
-import TreeViewer from './components/TreeViewer.vue'
 
 export default {
   name: 'App',
   components: {
-    TreeViewer
   }
 }
 </script>
