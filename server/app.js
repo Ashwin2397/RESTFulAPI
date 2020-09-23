@@ -1,5 +1,4 @@
 //Dependencies
-require("dotenv").config();
 var mongoose=require("mongoose"),
     express = require("express"),
     User    =require("./models/user.js"),
