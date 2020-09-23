@@ -24,6 +24,10 @@ db.on('error', err => {
   console.error('connection error:', err)
 })
 
+//Seed db
+var seedDB=require("./seeds");
+seedDB();
+
 //Setup CORS
 app.use(express.json());
 app.use(cors());
