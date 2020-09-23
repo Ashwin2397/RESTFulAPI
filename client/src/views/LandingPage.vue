@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
     <h1>Victoria Arbutus Tree Watching System</h1>
+    <a class="btn btn-primary" href="./trees">View All Trees</a>
+    
   </div>
 </template>
 
