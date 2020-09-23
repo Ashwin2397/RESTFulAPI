@@ -13,6 +13,11 @@
     </div>
     <div class=row>
         <div class="col">
+            <input v-model="description" placeholder="brief caption">
+        </div>
+    </div>
+    <div class=row>
+        <div class="col">
             <input v-model="weight" placeholder="weight(kg)">
         </div>
     </div>
@@ -43,6 +48,7 @@ export default {
       return{
           genus: '',
           image: '',
+          description: '',
           weight: 0,
           height: 0,
           longitude:'',
@@ -56,6 +62,7 @@ export default {
             .post("http://localhost:3000/trees",{
                     genus: this.genus,
                     image: this.image,
+                    description: this.description,
                     weight: this.weight,
                     height: this.height,
                     longitude: this.longitude,

@@ -7,11 +7,17 @@
       </div>
     </div>
     <a id="create" class="btn btn-success" href="./trees/new">Create new tree</a>
-    <ul>
-      <li v-for="item in trees" v-bind:key="item._id">
-        {{ item.genus }} - {{ item.image }}
-      </li>
-    </ul>
+    <div v-for="item in trees" v-bind:key="item._id">
+      <div class="card" style="width: 18rem;" >
+        <img class="card-img-top" v-bind:src="item.image" >
+        <div class="card-body">
+          <h4 class="card-title">{{ item.genus }}</h4>
+          <p class="card-text">{{ item.description }}</p>
+          <a v-bind:href="'./trees/'+item._id" class="btn btn-primary">Read More...</a>
+        </div>
+      </div>
+    </div>
+   
   </div>
 </template>
 
@@ -48,17 +54,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
+
 .container{
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -69,7 +65,12 @@ li {
 a{
   text-align: right;
 }
-
+.jumbotron-fluid{
+  margin-top:0px;
+}
+.jumbotron{
+  margin-top:0px;
+}
 .col{
   margin-top: 20px;
   background:pink;
