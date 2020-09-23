@@ -36,6 +36,7 @@ router.post("/",async function(req,res){
     var tree = new Tree({
         genus:req.body.genus,
         image:req.body.image,
+        description:req.body.description,
         weight:req.body.weight,
         height:req.body.height,
         longitude:req.body.longitude,
