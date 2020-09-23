@@ -5,7 +5,8 @@ var treeSchema= new mongoose.Schema({
     image:String,
     weight:Number,
     height:Number,
-    location:String
+    longitude:String,
+    latitude:String
 });
 
 module.exports=mongoose.model("Tree",treeSchema);

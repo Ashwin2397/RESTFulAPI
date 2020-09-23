@@ -31,6 +31,9 @@ app.use(cors());
 
 //Connect app to routes
 app.use("/",indexRoutes);
+app.use("/trees",treeRoutes);
+
+
 
 
 app.listen(3000,function(){
