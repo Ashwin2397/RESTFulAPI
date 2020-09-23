@@ -24,6 +24,11 @@ db.on('error', err => {
   console.error('connection error:', err)
 })
 
+//Setup CORS
+app.use(express.json());
+app.use(cors());
+
+
 //Connect app to routes
 app.use("/",indexRoutes);
 
