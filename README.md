@@ -18,13 +18,15 @@
 ## HTTP Status Codes
 | Route  | Method   | HTTP Status Codes   |
 |---|---|---|
-| Index | GET | 500 - Internal Server Error; 200 - OK   |
-|   |   |   |
-|   |   |   |
-|   |   |   |
-|   |   |   |
-|   |   |   |
-|   |   |   |
+| Index | GET | *500 => Internal Server Error<br>*200 => OK|
+| Destroy  |DELETE   |*500 => Internal Server<br>*204 => Request successfully processed;no content returned-   |
+|Show   |GET   |*500 => Internal Server Error<br>*200 => OK   |
+|Edit   |GET   |*500 => Internal Server Error<br>*200 => OK   |
+|Update   |PUT   |*500 => Internal Server<br>*204 => Request successfully processed;no content returned-      |
+|New   |GET   | *Show form in client side only   |
+|Create   |POST   |*401 => Request cannot be processed;client error, possibly syntax<br>*201 => Request successful, appropriate resource created   |
+
+
 
 ## Run MongoDB Locally
 * Run mongod daemon from bin folder
