@@ -1,5 +1,12 @@
 <template>
-  <div class="">
+  <div class="hello">
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/trees">Home</a>
+            </li>
+        </ul>
+    </nav>
     <h2>Add Tree</h2>
     <div class=row>
         <div class="col">
@@ -28,15 +35,15 @@
     </div>
     <div class=row>
         <div class="col">
-            <input v-model="longitude" placeholder="longitude">
+            <input v-model="longitude" placeholder="longitude: [deg]^[N or S]">
         </div>
     </div>
     <div class=row>
         <div class="col">
-            <input v-model="latitude" placeholder="latitude">
+            <input v-model="latitude" placeholder="latitude: [deg]^[W or E]">
         </div>
     </div>
-    <input type="submit" class="" v-on:click="postTree" href="http://localhost:8080/trees" label="Create Character">
+    <input type="submit" class="" v-on:click="postTree" href="http://localhost:8080/trees" label="Create Tree">
   </div>
 </template>
 
@@ -49,8 +56,8 @@ export default {
           genus: '',
           image: '',
           description: '',
-          weight: 0,
-          height: 0,
+          weight: null,
+          height: null,
           longitude:'',
           latitude:''
       }
@@ -72,6 +79,7 @@ export default {
                 console.log(res);
             });
         this.$router.push("/trees");
+        window.location.reload();
       }
   }
 }

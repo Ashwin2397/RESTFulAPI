@@ -1,21 +1,28 @@
 <template>
-  <div class="hello">
+  <div class="hello"> 
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/trees">Home</a>
+            </li>
+        </ul>
+    </nav>
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <h1 class="display-4">Trees</h1>
         <p class="lead">A brief lists of all trees in Victoria</p>
       </div>
     </div>
-    <a id="create" class="btn btn-success" href="./trees/new">Create new tree</a>
+    <a id="create" class="btn btn-success" href="/trees/new">Create new tree</a>
     <div class="container">
       <div class="row">
         <div class="col-sm-4"  v-for="item in trees" v-bind:key="item._id">
             <div class="card" style="width: 18rem;" >
-              <img class="card-img-top" v-bind:src="item.image" >
+              <img class="card-img-top" v-bind:src="item.image" alt="Some image" >
               <div class="card-body">
                 <h4 class="card-title">{{ item.genus }}</h4>
                 <p class="card-text">{{ item.description }}</p>
-                <a v-bind:href="'./trees/'+item._id" class="btn btn-primary">Read More...</a>
+                <a v-bind:href="'/trees/'+item._id" class="btn btn-primary">Read More...</a>
               </div>
             </div>
         </div>    
@@ -28,6 +35,7 @@
 
 <script>
 import axios from "axios"
+
 
 export default {
   name: 'index-page',
@@ -44,7 +52,7 @@ export default {
           .get("http://localhost:3000/trees")
           .then((res)=>{
             this.trees=res.data;
-            console.log(res.data);
+            console.log(res);
           })
           .catch((err) =>{console.log(err);});
     }
@@ -74,5 +82,8 @@ a{
 .col{
   margin-top: 20px;
   background:pink;
+}
+.navlink{
+  color:black;
 }
 </style>
