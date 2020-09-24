@@ -69,6 +69,7 @@ export default {
     deleteTree: function(){
       axios
            .delete("http://localhost:3000/trees/"+this.$router.currentRoute.params.id)
+           .then((res)=>{console.log(res);})
            .catch((err)=>{console.log(err);});
 
       this.$router.push("/trees");

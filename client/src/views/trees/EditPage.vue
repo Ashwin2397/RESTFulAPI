@@ -78,7 +78,7 @@ export default {
       axios
            .put("http://localhost:3000/trees/"+this.$router.currentRoute.params.id,newTree)
            .then((res)=>{
-             console.log(res.data);
+             console.log(res);
            })
            .catch((err)=>{console.log(err);});
       this.$router.push("/trees");

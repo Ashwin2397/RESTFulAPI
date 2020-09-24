@@ -17,6 +17,7 @@ router.get("/",async function(req,res){
     catch(err){
         res.status(500).json({ message: err.message });
     }
+    
 });
 
 // //Show Route
@@ -24,7 +25,7 @@ router.get("/:id",async function(req,res){
     try{
         Tree.findById(req.params.id,function(err,foundTree){
             if(err)
-                console.log(err);
+                res.status(500).json({ message:err.message });
             else{
                 res.send(foundTree);
             }
@@ -40,8 +41,9 @@ router.put("/:id",async function(req,res){
     try{
         Tree.findByIdAndUpdate(req.params.id,req.body,function(err,foundTree){
             if(err)
-                console.log(err);
+                res.status(500).json({ message:err.message });
         });
+        res.status(204).json({ });
     }
     catch(err){
         res.status(500).json({ message:err.message });
@@ -76,12 +78,16 @@ router.delete("/:id",async function(req,res){
     try{
         Tree.findByIdAndRemove(req.params.id,function(err){
             if(err)
-                console.log(err);
+                res.status(500).json({ message:err.message });
+           
         })
+        res.status(204).json({ });
     }
     catch(err){
-        console.log(err);
+        res.status(500).json({ message:err.message });
     }
+    
 });
+
 
 module.exports = router;
