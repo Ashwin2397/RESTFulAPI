@@ -8,7 +8,7 @@ router.get("/",async function(req,res){
     try{ 
         Tree.find({},function(err,allTrees){
         if(err)
-            console.log(err);
+            res.status(500).json({ message: err.message });
         else{
             res.send(allTrees);
         }
