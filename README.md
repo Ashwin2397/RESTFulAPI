@@ -6,6 +6,8 @@
 * The focus was solely on creating the client-server architecture
 * Little to no frontend design had been incorporated 
     * Everything had been bootstrapped and performs accordingly to its expected functionalities
+* Soon to be deployed to Heroku for possible testing with selenium
+    * So as to hone skills on automated web testing
 ## Goal
 * Further enhance knowledge on API calls and bridge lapse in understanding
     * Did so by creating an API endpoint from the server side (with "cors" module) and did API calls from client side (with "axios" module)
