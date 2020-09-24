@@ -1,6 +1,5 @@
 var express =require("express"),
-    router  =express.Router(),
-    User    =require("../models/user.js");
+    router  =express.Router();
     
 //Landing Page
 router.get("/",function(req,res){

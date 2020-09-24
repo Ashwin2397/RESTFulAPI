@@ -20,13 +20,34 @@ router.get("/",async function(req,res){
 });
 
 // //Show Route
-// router.get();
-
-
-// //Edit Route
-// router.get();
+router.get("/:id",async function(req,res){
+    try{
+        Tree.findById(req.params.id,function(err,foundTree){
+            if(err)
+                console.log(err);
+            else{
+                res.send(foundTree);
+            }
+        });
+    }
+    catch(err){
+        res.status(500).json({ message:err.message });
+    }
+});
 
 // //Update Route
+router.put("/:id",async function(req,res){
+    try{
+        Tree.findByIdAndUpdate(req.params.id,req.body,function(err,foundTree){
+            if(err)
+                console.log(err);
+        });
+    }
+    catch(err){
+        res.status(500).json({ message:err.message });
+    }
+    
+});
 
 // //New Route
 // router.get();
@@ -51,5 +72,16 @@ router.post("/",async function(req,res){
 });
 
 //Delete Route
+router.delete("/:id",async function(req,res){
+    try{
+        Tree.findByIdAndRemove(req.params.id,function(err){
+            if(err)
+                console.log(err);
+        })
+    }
+    catch(err){
+        console.log(err);
+    }
+});
 
 module.exports = router;
