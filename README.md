@@ -1,9 +1,9 @@
 # Application to demonstrate RESTFul Routes
 
 ## Overview
+* The focus was solely on creating/understanding the client-server architecture through experimentation 
 * A rendition of a previously attempted web app, using the MEVN stack instead of the MEN stack(with .ejs view "sheets").
 * A simple 5 page web application (including the landing page) that constitues an API endpoint from the server side, API calls being made from the client side and appropriate sending of HTTP status codes
-* The focus was solely on creating the client-server architecture
 * **Little to no frontend design had been incorporated**
     * This caveat includes: **little to no VueJS concepts had been included** 
     * Everything had been bootstrapped and performs accordingly to its expected functionalities
